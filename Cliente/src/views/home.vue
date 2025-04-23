@@ -12,7 +12,7 @@
         <q-drawer v-model="drawer" show-if-above bordered>
             <q-list>
 
-                <q-item clickable v-ripple routerLink to="/home/prueba">
+                <q-item clickable v-ripple routerLink to="/home">
                     <q-item-section avatar>
                         <q-icon name="home"></q-icon>
                     </q-item-section>
@@ -36,7 +36,5 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-
 const drawer = ref(false)
-
 </script>

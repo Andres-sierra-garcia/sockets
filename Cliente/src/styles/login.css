@@ -1,0 +1,54 @@
+.q-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.login-card {
+    background-color: var(--secundary-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    text-align: center;
+  }
+  
+  .login-title {
+    font-size: 26px;
+  color: var(--fourth-color);
+  margin-bottom: 28px;
+  border-bottom: 3px solid var(--fifth-color);
+  padding-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  }
+  
+  .login-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+.q-btn{
+    background-color: var(--primary-color);
+}
+
+
+.cliente-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.empleado-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

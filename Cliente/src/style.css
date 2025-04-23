@@ -1,3 +1,22 @@
+:root{
+  --primary-color:#c1d3fe;
+  --secundary-color:#edf2fb;
+  --third-color:#2196f3;
+  --fourth-color:#003049;
+  --fifth-color: #abc4ff;
+} 
+
+
 *{
   margin: 0%;
 }
+
+h2{
+  font-size: 24px;
+  color:white;
+  margin-bottom: 16px;
+  font-weight: 600;
+  border-bottom: 2px solid white;
+  padding-bottom: 8px;
+}
+

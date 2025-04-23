@@ -1,19 +1,42 @@
-import express from 'express';
-import cors from 'cors';
-import http from 'http';
-import dotenv from 'dotenv';
-import * as io from 'socket.io';
-import {socketController} from './sockets/controllers.js';
-
+import express from "express";
+import { Server } from "socket.io";
+import http from "http";
+import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 
-class server {
-    constructor(){
-        this.app= express();
-        this.port = process.env.port;
-        this.server = http.createServer(this.app);
-        this.io = new io.Server(this.server);
-        this.paths = {};
-        
+const app = express();
+const port = process.env.PORT || 3500;
+app.use(
+    cors({
+        origin: process.env.CLIENT_URL || "http://localhost:5173",
+        credentials: true,
+    })
+);
+
+const server = http.createServer(app);
+
+export const io = new Server(server, {
+    cors: {
+        origin: process.env.CLIENT_URL || 'http://localhost:5173',
+        methods: ['GET', 'POST'],
+        credentials: true,
+        transports: ['websocket', 'polling']
+    },
+    connectionStateRecovery: {
+        maxDisconnectionDuration: 2 * 60 * 1000,
+        skipMiddlewares: true
     }
-}
+});
+
+import { configureSockets } from "./sockets/socket.js";
+configureSockets(io)
+
+app.use(express.static("public"));
+
+server.listen(port, (error) => {
+    if (error) {
+        throw new Error(error);
+    }
+    console.log(`Server running in the port ${port}`);
+});
