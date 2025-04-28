@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 export const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URL || 'http://localhost:5173',
+        origin: 'https://sockets-zv6w.onrender.com',
         methods: ['GET', 'POST'],
         credentials: true,
         transports: ['websocket', 'polling']
